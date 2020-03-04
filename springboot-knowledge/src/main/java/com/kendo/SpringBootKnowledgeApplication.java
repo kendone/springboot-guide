@@ -3,7 +3,6 @@ package com.kendo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
@@ -24,7 +23,6 @@ public class SpringBootKnowledgeApplication {
                 .bannerMode(Banner.Mode.OFF)
                 .sources(SpringBootKnowledgeApplication.class)
                 .run(args);
-        // SpringApplication.run(SpringBootKnowledgeApplication.class, args);
     }
 
     @Bean
