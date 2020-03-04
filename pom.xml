@@ -18,6 +18,7 @@
         <module>springboot-jpa</module>
         <module>springboot-knowledge</module>
         <module>springboot-jdbc</module>
+        <module>springboot-mybatis</module>
     </modules>
 
 
