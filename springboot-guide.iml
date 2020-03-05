@@ -4,6 +4,15 @@
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/springboot-jdbc/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/springboot-jdbc/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/springboot-jdbc/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/springboot-jpa/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/springboot-jpa/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/springboot-knowledge/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/springboot-mybatis/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/springboot-mybatis/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/springboot-mybatis/src/test/java" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
