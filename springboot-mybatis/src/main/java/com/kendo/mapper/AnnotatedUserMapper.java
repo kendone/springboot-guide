@@ -3,7 +3,6 @@ package com.kendo.mapper;
 import com.kendo.domain.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectKey;
 
 import java.util.List;
 
