@@ -2,6 +2,7 @@ package com.kendo.mapper;
 
 import com.kendo.domain.User;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -11,8 +12,7 @@ import java.util.List;
  */
 public interface AnnotatedUserMapper {
     @Insert("INSERT INTO users(name,email) VALUES(#{name},#{email})")
-    @SelectKey(statement = "call identity()", keyProperty = "id",
-            before = false, resultType = Integer.class)
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     void insert(User user);
 
     @Select("SELECT id,name,email FROM users where id = #{id}")

@@ -25,6 +25,14 @@ public class SpringBootMybatisApplicationTests {
     private AnnotatedUserMapper annotatedUserMapper;
 
     @Test
+    public void insertUser() {
+        User user = new User();
+        user.setName("霍华德");
+        user.setEmail("Howord@163.com");
+        annotatedUserMapper.insert(user);
+    }
+
+    @Test
     public void findAllUsers() {
         List<User> users = userMapper.findAll();
         assertNotNull(users);
