@@ -13,9 +13,7 @@
 <body>
 <div>
     <h3>用户注册</h3>
-
     <form th:action="@{/register}" th:object="${user}" method="post">
-
         <p th:if="${#fields.hasErrors('global')}" th:errors="*{global}"
            th:class="text-red">Incorrect data</p>
         <div th:classappend="${#fields.hasErrors('name')}? 'has-error'">
