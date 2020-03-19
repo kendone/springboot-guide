@@ -20,6 +20,7 @@
         <module>springboot-jdbc</module>
         <module>springboot-mybatis</module>
         <module>springboot-webmvc</module>
+        <module>springboot-mongodb</module>
     </modules>
 
 </project>

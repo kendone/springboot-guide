@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author kendone
  */
 @SpringBootApplication
-public class SpringbootWebApplication {
+public class SpringbootWebmvcApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootWebApplication.class, args);
+        SpringApplication.run(SpringbootWebmvcApplication.class, args);
     }
 
 }

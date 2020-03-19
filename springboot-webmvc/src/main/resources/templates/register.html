@@ -15,19 +15,28 @@
     <h3>用户注册</h3>
 
     <form th:action="@{/register}" th:object="${user}" method="post">
-        <div>
-            <label>用户名</label>
-            <input type="text" th:field="*{name}">
+
+        <p th:if="${#fields.hasErrors('global')}" th:errors="*{global}"
+           th:class="text-red">Incorrect data</p>
+        <div th:classappend="${#fields.hasErrors('name')}? 'has-error'">
+            <label>Name</label>
+            <input type="text" th:field="*{name}"/>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+               th:class="text-red">Incorrect data</p>
         </div>
-        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="text-red">邮件地址错误</p>
-        <div>
-            <label>邮箱地址</label>
+        <div th:classappend="${#fields.hasErrors('email')}? 'has-error'">
+            <label>Email</label>
             <input type="text" th:field="*{email}"/>
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+               th:class="text-red">Incorrect data</p>
         </div>
-        <div>
-            <label>密 码</label>
+        <div th:classappend="${#fields.hasErrors('password')}? 'has-error'">
+            <label>Password</label>
             <input type="password" th:field="*{password}"/>
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+               th:class="text-red">Incorrect data</p>
         </div>
+
         <div>
             <button type="submit">提交</button>
         </div>
