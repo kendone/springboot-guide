@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>文件上传</title>
 </head>
 <body>
 <form action="/upload" th:action="@{/upload}" method="post" enctype="multipart/form-data">
     <input type="file" name="file">
-    <input type="submit">
+    <input type="submit" th:value="上传">
 </form>
 </body>
 </html>

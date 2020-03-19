@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,17 +17,19 @@ import java.nio.file.Files;
 public class FileuploadController {
 
     @PostMapping("/upload")
-    public String uploadFile(@RequestParam("file") MultipartFile file) {
-        if (!file.isEmpty()) {
-            String name = file.getOriginalFilename();
-            System.out.println("file name： " + name);
-            try {
-                assert name != null;
-                Files.write(new File(name).toPath(), file.getBytes());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
+        if (file.isEmpty()) {
+            redirectAttributes.addFlashAttribute("message", "请选择文件");
+            return "redirect:/uploadResult";
         }
-        return "index";
+
+        String name = file.getOriginalFilename();
+        try {
+            Files.write(new File(name).toPath(), file.getBytes());
+            redirectAttributes.addFlashAttribute("message", "文件【" + file.getOriginalFilename() + "】上传成功");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "redirect:/uploadResult";
     }
 }
