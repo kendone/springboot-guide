@@ -6,6 +6,8 @@ import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
+ * 全局异常处理类
+ *
  * @author kendone
  */
 @ControllerAdvice
@@ -16,4 +18,5 @@ public class GlobalExceptionHandler {
         redirectAttributes.addFlashAttribute("message", e.getCause().getMessage());
         return "redirect:/uploadResult";
     }
+
 }
