@@ -19,6 +19,7 @@
         <module>springboot-knowledge</module>
         <module>springboot-jdbc</module>
         <module>springboot-mybatis</module>
+        <module>springboot-webmvc</module>
     </modules>
 
 </project>
