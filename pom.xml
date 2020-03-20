@@ -21,6 +21,7 @@
         <module>springboot-mybatis</module>
         <module>springboot-webmvc</module>
         <module>springboot-mongodb</module>
+        <module>springboot-rest</module>
     </modules>
 
 </project>
