@@ -39,13 +39,13 @@ public class PostController {
                 .orElseThrow(() -> new ResourceNotFoundException("没有此记录"));
     }
 
-    @PutMapping("/{id")
+    @PutMapping("/{id}")
     public Post update(@PathVariable("id") Integer id, @RequestBody Post post) throws Throwable {
         postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("没有此记录"));
         return postRepository.save(post);
     }
 
-    @DeleteMapping("/{id")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Integer id) {
         Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("没有此记录"));
         postRepository.deleteById(post.getId());

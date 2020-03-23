@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 /**
  * @author kendone
@@ -46,5 +47,26 @@ public class SpringbootRestApplicationTests {
         ResponseEntity<Post> postResponseEntity = restTemplate.postForEntity(ROOT_URL + "/posts", post, Post.class);
         assertNotNull(postResponseEntity);
         assertNotNull(postResponseEntity.getBody());
+    }
+
+    @Test
+    public void update() {
+        Post post = restTemplate.getForObject(ROOT_URL + "/posts/4", Post.class);
+        assertNotNull(post);
+        post.setContent("Spring Boot意气风发");
+        post.setUpdatedOn(new Date());
+
+        restTemplate.put(ROOT_URL + "/posts/4", post);
+        Post updatedPost = restTemplate.getForObject(ROOT_URL + "/posts/4", Post.class);
+        assertNotNull(updatedPost);
+    }
+
+    @Test
+    public void delete() {
+        Post post = restTemplate.getForObject(ROOT_URL + "/posts/4", Post.class);
+        assertNotNull(post);
+        restTemplate.delete(ROOT_URL + "/posts/4");
+        post = restTemplate.getForObject(ROOT_URL + "/posts/4", Post.class);
+        assertNull(post);
     }
 }
