@@ -3,18 +3,17 @@ package com.kendo.controller;
 import com.kendo.domain.Post;
 import com.kendo.repositories.CommentRepository;
 import com.kendo.repositories.PostRepository;
-import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 /**
  * @author kendone
  */
-@RestController(value = "/posts")
+@RestController
+@RequestMapping("posts")
 public class PostController {
 
     @Autowired
@@ -34,8 +33,8 @@ public class PostController {
         return postRepository.findAll();
     }
 
-    @GetMapping("/{id")
-    public Post get(@PathVariable("id") Integer id) throws Throwable {
+    @GetMapping("/{id}")
+    public Post get(@PathVariable("id") Integer id) {
         return postRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("没有此记录"));
     }
