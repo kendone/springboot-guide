@@ -35,8 +35,7 @@ public class PostController {
 
     @GetMapping("/{id}")
     public Post get(@PathVariable("id") Integer id) {
-        return postRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("没有此记录"));
+        return postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("没有此记录"));
     }
 
     @PutMapping("/{id}")

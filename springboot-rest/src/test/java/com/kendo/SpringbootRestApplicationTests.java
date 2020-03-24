@@ -53,7 +53,8 @@ public class SpringbootRestApplicationTests {
     public void update() {
         Post post = restTemplate.getForObject(ROOT_URL + "/posts/4", Post.class);
         assertNotNull(post);
-        post.setContent("Spring Boot意气风发");
+        post.setTitle("Spring Boot 学习指南");
+        post.setContent("Spring Boot 学习之旅");
         post.setUpdatedOn(new Date());
 
         restTemplate.put(ROOT_URL + "/posts/4", post);
@@ -63,10 +64,10 @@ public class SpringbootRestApplicationTests {
 
     @Test
     public void delete() {
-        Post post = restTemplate.getForObject(ROOT_URL + "/posts/4", Post.class);
+        Post post = restTemplate.getForObject(ROOT_URL + "/posts/2", Post.class);
         assertNotNull(post);
-        restTemplate.delete(ROOT_URL + "/posts/4");
-        post = restTemplate.getForObject(ROOT_URL + "/posts/4", Post.class);
+        restTemplate.delete(ROOT_URL + "/posts/2");
+        post = restTemplate.getForObject(ROOT_URL + "/posts/2", Post.class);
         assertNull(post);
     }
 }
