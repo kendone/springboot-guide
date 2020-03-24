@@ -22,6 +22,7 @@
         <module>springboot-webmvc</module>
         <module>springboot-mongodb</module>
         <module>springboot-rest</module>
+        <module>springboot-webflux</module>
     </modules>
 
 </project>
