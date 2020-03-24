@@ -1,9 +1,12 @@
 package com.kendo;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * @author kendone
  */
-
+@Document
 public class User {
     @Id
     private String id;
