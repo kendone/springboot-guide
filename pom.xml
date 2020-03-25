@@ -23,6 +23,7 @@
         <module>springboot-mongodb</module>
         <module>springboot-rest</module>
         <module>springboot-webflux</module>
+        <module>springboot-security</module>
     </modules>
 
 </project>
