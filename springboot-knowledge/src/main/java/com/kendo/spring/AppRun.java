@@ -12,7 +12,6 @@ public class AppRun {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         User user = (User) context.getBean("user");
-
     }
 
 }

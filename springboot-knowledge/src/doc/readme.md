@@ -1,2 +1,0 @@
-- FactoryBean和ApplicationContext本质区别
-FactoryBean是懒加载的，ApplicationContext是非懒加载（可以设置为懒加载）。
