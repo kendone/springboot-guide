@@ -8,12 +8,13 @@ import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Import;
 
 /**
  * @author kendone
  */
 @Configuration
+@Import(value = {Car.class, KendoImportSelector.class, KendoBeanDefinitionRegister.class})
 public class Config {
 
     private static final Logger LOG = LoggerFactory.getLogger(Config.class);
