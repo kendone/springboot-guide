@@ -1,9 +1,16 @@
 package com.kendo.spring;
 
+import org.springframework.beans.factory.annotation.Value;
+
 /**
  * @author kendone
  */
 public class User {
+
+    @Value("${user.name}")
+    private String name;
+    @Value("${user.age}")
+    private Integer age;
 
     static {
         System.out.println("执行 User 的静态初始代码块");

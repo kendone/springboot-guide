@@ -1,7 +1,6 @@
 package com.kendo.spring;
 
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -10,7 +9,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class AppRun {
 
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+//        context.getEnvironment().setActiveProfiles();
+//        context.register(Config.class);
+//        context.refresh();
         User user = (User) context.getBean("user");
     }
 
