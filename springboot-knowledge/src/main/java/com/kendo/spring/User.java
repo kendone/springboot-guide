@@ -19,4 +19,8 @@ public class User {
     public User() {
         System.out.println("执行 User 构造方法");
     }
+
+    public void helloExecute() {
+        System.out.println("你好");
+    }
 }

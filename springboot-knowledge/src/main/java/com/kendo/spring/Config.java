@@ -11,20 +11,23 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 
 /**
  * @author kendone
  */
 @Configuration
+@EnableAspectJAutoProxy
 @PropertySource(value = {"classpath:user.properties"})
 @Import(value = {Car.class, KendoImportSelector.class, KendoBeanDefinitionRegister.class})
 public class Config {
 
     private static final Logger LOG = LoggerFactory.getLogger(Config.class);
+
+    @Bean
+    public LogAspectJ logAspectJ() {
+        return new LogAspectJ();
+    }
 
     //@Lazy
     @Bean

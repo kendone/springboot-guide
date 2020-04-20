@@ -14,6 +14,7 @@ public class AppRun {
 //        context.register(Config.class);
 //        context.refresh();
         User user = (User) context.getBean("user");
+        user.helloExecute();
     }
 
 }
