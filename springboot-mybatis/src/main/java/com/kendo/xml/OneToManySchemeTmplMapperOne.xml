@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.dao.one-to-many.TeacherMapper">
+    <!--使用内嵌结果ResultMap实现一对多映射-->
+    <resultMap id="courseMap" type="course">
+        <id property="courseId" column="course_id"/>
+        <result property="name" column="name"/>
+        <result column="description" property="description"/>
+        <result column="start_date" property="startDate"/>
+        <result column="end_date" property="endDate"/>
+    </resultMap>
+
+    <resultMap id="teacherMap" type="tutor">
+        <id property="tutorId" column="tutor_id"/>
+        <result column="tutor_name" property="name"/>
+        <result column="email" property="email"/>
+        <collection property="courses" resultMap="courseMap"/>
+    </resultMap>
+
+    <select id="findTeacherById" parameterType="int" resultMap="teacherMap">
+        SELECT
+            t.id,
+            t.name AS tutor_name,
+            t.email,
+            c.course_id,
+            c.name,
+            c.description,
+            c.start_date,
+            c.end_date
+        FROM teacher t
+            LEFT JOIN address a
+                ON t.addr_id = a.id
+            LEFT JOIN courses c
+                ON t.tutor_id = c.tutor_id
+        WHERE t.tutor_id = #{id};
+    </select>
+</mapper>

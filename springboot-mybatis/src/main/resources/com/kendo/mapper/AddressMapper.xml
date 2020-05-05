@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kendo.mapper.AddressMapper">
+    <resultMap id="addressMap" type="address">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="street" jdbcType="VARCHAR" property="street"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="state" jdbcType="VARCHAR" property="state"/>
+        <result column="zip" jdbcType="VARCHAR" property="zip"/>
+        <result column="country" jdbcType="VARCHAR" property="country"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        DELETE FROM address
+        WHERE id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <!--插入返回主键，必须设置useGeneratedKeys="true" keyProperty="id"-->
+    <insert id="insert" parameterType="address" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO address (
+            street,
+            city,
+            state,
+            zip,
+            country
+        )
+        VALUES (
+            #{street,jdbcType=VARCHAR},
+            #{city,jdbcType=VARCHAR},
+            #{state,jdbcType=VARCHAR},
+            #{zip,jdbcType=VARCHAR},
+            #{country,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="address">
+        UPDATE address
+        <set>
+            <if test="@com.kendo.util.TmStringUtils@isNotEmpty(street)">street = #{street,jdbcType=VARCHAR},</if>
+            <if test="@com.kendo.util.TmStringUtils@isNotEmpty(city)">city = #{city,jdbcType=VARCHAR},</if>
+            <if test="@com.kendo.util.TmStringUtils@isNotEmpty(state)">state = #{state,jdbcType=VARCHAR},</if>
+            <if test="@com.kendo.util.TmStringUtils@isNotEmpty(zip)">zip = #{zip,jdbcType=VARCHAR},</if>
+            <if test="@com.kendo.util.TmStringUtils@isNotEmpty(country)">country = #{country,jdbcType=VARCHAR}</if>
+        </set>
+        WHERE id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="addressMap">
+        SELECT
+            id,
+            street,
+            city,
+            state,
+            zip,
+            country
+        FROM address
+        WHERE id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectAll" resultMap="addressMap">
+        SELECT
+            id,
+            street,
+            city,
+            state,
+            zip,
+            country
+        FROM address
+    </select>
+</mapper>

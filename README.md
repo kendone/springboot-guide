@@ -1,4 +1,4 @@
-# springboot-guide
+# Springboot Guides for all related components.
 init
 
 org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod

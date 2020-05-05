@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.dao.one-to-many.TutorMapper">
+    <resultMap id="AddressResult" type="address">
+        <id property="addrId" column="addr_id"/>
+        <result property="street" column="street"/>
+        <result property="city" column="city"/>
+        <result property="state" column="state"/>
+        <result property="zip" column="zip"/>
+        <result property="country" column="country"/>
+    </resultMap>
+
+    <!--使用内嵌结果ResultMap实现一对多映射-->
+    <resultMap type="Course" id="CourseResult">
+        <id column="course_id" property="courseId"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="start_date" property="startDate"/>
+        <result column="end_date" property="endDate"/>
+    </resultMap>
+
+    <resultMap type="Tutor" id="TutorResult">
+        <id column="tutor_id" property="tutorId"/>
+        <result column="tutor_name" property="name"/>
+        <result column="email" property="email"/>
+        <association property="address" resultMap="AddressResult"/>
+        <collection property="courses" column="tutor_id" select="findCoursesByTutor"/>
+    </resultMap>
+
+    <select id="findTutorById" parameterType="int" resultMap="TutorResult">
+      SELECT T.TUTOR_ID, T.NAME AS TUTOR_NAME, EMAIL
+      FROM TUTORS T WHERE T.TUTOR_ID=#{tutorId}
+    </select>
+
+    <select id="findCoursesByTutor" parameterType="int" resultMap="CourseResult">
+        SELECT * FROM COURSES WHERE TUTOR_ID=#{tutorId}
+    </select>
+</mapper>

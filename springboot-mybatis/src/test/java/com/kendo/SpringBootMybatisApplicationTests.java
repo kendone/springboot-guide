@@ -45,4 +45,5 @@ public class SpringBootMybatisApplicationTests {
         assertNotNull(users);
         assertFalse(users.isEmpty());
     }
+
 }

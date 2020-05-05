@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.dao.one-to-one.StudentMapper">
+    <!--另一种使用嵌套ResultMap和association标签定义一对一(一个学生拥有一个唯一的住址)关联模型-->
+    <resultMap id="studentAddressMap" type="Student">
+        <id property="studId" column="stud_id"/>
+        <result property="name" column="name"/>
+        <result property="email" column="email"/>
+        <association property="address" javaType="address">
+            <id property="id" column="id"/>
+            <result property="street" column="street"/>
+            <result property="city" column="city"/>
+            <result property="state" column="state"/>
+            <result property="zip" column="zip"/>
+            <result property="country" column="country"/>
+        </association>
+    </resultMap>
+
+    <select id="selectStudentAddress" parameterType="int" resultMap="studentAddressMap">
+        SELECT
+            id,
+            name,
+            email,
+            a.id,
+            street,
+            city,
+            state,
+            zip,
+            country
+        FROM student s
+            LEFT JOIN address a
+                ON s.address_id = a.id
+        WHERE id = #{studId};
+    </select>
+</mapper>

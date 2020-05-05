@@ -1,0 +1,67 @@
+package com.kendo.xml;
+
+import java.util.Date;
+
+/*One*/
+@SuppressWarnings("unused")
+class OneToOneStudent {
+    private Integer id;
+
+    private String name;
+
+    private String email;
+
+    private Date birthday;
+
+    private String phone;
+
+    private OneToOneAddress address;//student表中对应address的外键的列明为address_id
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    public OneToOneAddress getAddress() {
+        return address;
+    }
+
+    public void setAddress(OneToOneAddress address) {
+        this.address = address;
+    }
+}

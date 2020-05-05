@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.dao.DynamicSqlMapper">
+    <!--动态SQL模板xml文件-->
+    <resultMap id="courseMap" type="course">
+        <id property="courseId" column="course_id"/>
+        <result property="name" column="name"/>
+        <result column="description" property="description"/>
+        <result column="start_date" property="startDate"/>
+        <result column="end_date" property="endDate"/>
+    </resultMap>
+    <!--动态SQL if标签以及SQL中使用CDATA处理特殊字符-->
+    <select id="selectByIf" parameterType="hashMap" resultMap="courseMap">
+        select * from courses
+        WHERE tutor_id = #{tutorId}
+        <if test="name!=null">
+            and name like #{name}
+        </if>
+        <if test="startDate!=null">
+            and start_date >= #{startDate}
+        </if>
+        <if test="endDate != null">
+            <![CDATA[AND end_date <= #{endDate}]]]>
+        </if>
+    </select>
+    <!--动态SQL choose when标签-->
+    <select id="searchByChooseWhen" parameterType="map" resultMap="courseMap">
+        select * FROM courses
+        <choose>
+            <when test="searchBy == 'Tutor'">
+                where tutor_id = #{tutorId}
+            </when>
+            <when test="searchBy == 'Name'">
+                where NAME like #{name}
+            </when>
+            <otherwise>
+                where start_date > = urrent_date()
+            </otherwise>
+        </choose>
+    </select>
+    <!--动态SQL where标签-->
+    <select id="selectByWhere" parameterType="hashMap" resultMap="courseMap">
+        select * from courses
+        <where>
+            <if test="tutorId!=null">
+                tutor_id = #{tutorId}
+            </if>
+            <if test="name!=null">
+                and name like #{name}
+            </if>
+            <if test="startDate!=null">
+                and start_date >= #{startDate}
+            </if>
+            <if test="endDate != null">
+                <![CDATA[AND end_date <= #{endDate}]]]>
+            </if>
+        </where>
+    </select>
+</mapper>
