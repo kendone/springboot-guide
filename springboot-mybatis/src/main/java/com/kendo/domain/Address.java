@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * @author kendone
  */
-public class Address implements Serializable {
+public class Address  {
 
     private Integer id;
     private String street;
