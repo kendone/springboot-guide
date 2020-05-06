@@ -9,14 +9,18 @@
     </resultMap>
 
     <select id="findAll" resultMap="userMap">
-select id, name, email from users
-</select>
+        SELECT id, name, email
+        FROM user
+    </select>
 
     <select id="get" resultMap="userResultMap">
-select id, name, email from users WHERE id=#{id}
-</select>
+        SELECT id, name, email
+        FROM user
+        WHERE id = #{id}
+    </select>
 
     <insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="id">
-insert into users(name,email) values(#{name},#{email})
-</insert>
+        INSERT INTO user(name, email)
+        VALUES (#{name}, #{email})
+    </insert>
 </mapper>
