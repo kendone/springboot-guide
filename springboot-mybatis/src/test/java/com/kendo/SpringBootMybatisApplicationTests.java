@@ -3,20 +3,24 @@ package com.kendo;
 import com.kendo.domain.User;
 import com.kendo.mapper.AnnotatedUserMapper;
 import com.kendo.mapper.UserMapper;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author kendone
  */
 @SpringBootTest
 public class SpringBootMybatisApplicationTests {
+
+    @Autowired
+    private SqlSessionFactory sqlSessionFactory;
 
     @Autowired
     private UserMapper userMapper;
@@ -46,4 +50,22 @@ public class SpringBootMybatisApplicationTests {
         assertFalse(users.isEmpty());
     }
 
+    /**
+     * 一级缓存测试
+     */
+    @Test
+    public void firstLevelCacheTest() {
+        SqlSession sessionOne = sqlSessionFactory.openSession();
+        UserMapper userMapper = sessionOne.getMapper(UserMapper.class);
+        User user = userMapper.get(1);
+        // sessionOne.clearCache();
+        UserMapper sameSessionUserMapper = sessionOne.getMapper(UserMapper.class);
+        User anotherUser = sameSessionUserMapper.get(1);
+        assertSame(user, anotherUser);
+
+        SqlSession anotherSession = sqlSessionFactory.openSession();
+        UserMapper anotherSessionUserMapper = anotherSession.getMapper(UserMapper.class);
+        User thirdUser = anotherSessionUserMapper.get(1);
+        assertNotSame(user, thirdUser);
+    }
 }
