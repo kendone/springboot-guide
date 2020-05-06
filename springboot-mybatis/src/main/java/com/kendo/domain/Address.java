@@ -1,12 +1,9 @@
 package com.kendo.domain;
 
-import javax.sql.rowset.serial.SerialArray;
-import java.io.Serializable;
-
 /**
  * @author kendone
  */
-public class Address  {
+public class Address {
 
     private Integer id;
     private String street;
