@@ -2,18 +2,17 @@ package com.kendo.domain;
 
 import java.util.List;
 
+/**
+ * @author kendone
+ */
 public class Teacher {
+
     private Integer id;
-
     private String name;
-
     private String email;
-
     private String phone;
-
     private Address address;
-
-    private List<Course> courses;//一个老师可以教授一门或多门课程
+    private List<Course> courses;
 
     public Integer getId() {
         return id;

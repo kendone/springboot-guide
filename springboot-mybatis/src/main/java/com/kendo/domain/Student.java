@@ -2,18 +2,17 @@ package com.kendo.domain;
 
 import java.util.Date;
 
+/**
+ * @author kendone
+ */
 public class Student {
+
     private Integer id;
-
     private String name;
-
     private String email;
-
     private Date birthday;
-
     private String phone;
-
-    private Address address;//student表中对应address的外键的列明为address_id
+    private Address address;
 
     public Integer getId() {
         return id;

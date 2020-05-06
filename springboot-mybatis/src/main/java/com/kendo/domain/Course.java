@@ -2,18 +2,17 @@ package com.kendo.domain;
 
 import java.util.Date;
 
+/**
+ * @author kendone
+ */
 public class Course {
+
     private Integer id;
-
     private String name;
-
     private String description;
-
     private Date startDate;
-
     private Date endDate;
-
-    private Integer teacherId;//授课老师id
+    private Integer teacherId;
 
     public Integer getId() {
         return id;
