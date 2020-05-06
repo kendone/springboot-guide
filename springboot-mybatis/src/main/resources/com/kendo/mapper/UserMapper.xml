@@ -13,7 +13,7 @@
         FROM user
     </select>
 
-    <select id="get" resultMap="userResultMap">
+    <select id="get" resultMap="userMap">
         SELECT id, name, email
         FROM user
         WHERE id = #{id}

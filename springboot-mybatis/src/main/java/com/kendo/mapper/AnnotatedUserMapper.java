@@ -14,14 +14,14 @@ import java.util.List;
  */
 public interface AnnotatedUserMapper {
 
-    @Insert("INSERT INTO users(name,email) VALUES(#{name},#{email})")
+    @Insert("INSERT INTO user(name,email) VALUES(#{name},#{email})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void insert(User user);
 
-    @Select("SELECT id,name,email FROM users where id = #{id}")
+    @Select("SELECT id,name,email FROM user where id = #{id}")
     User get(Integer id);
 
-    @Select("SELECT id,name,email FROM users")
+    @Select("SELECT id,name,email FROM user")
     List<User> findAll();
 
 }
