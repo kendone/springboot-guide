@@ -63,9 +63,28 @@ public class SpringBootMybatisApplicationTests {
         User anotherUser = sameSessionUserMapper.get(1);
         assertSame(user, anotherUser);
 
+        // 开启另一个会话
         SqlSession anotherSession = sqlSessionFactory.openSession();
         UserMapper anotherSessionUserMapper = anotherSession.getMapper(UserMapper.class);
         User thirdUser = anotherSessionUserMapper.get(1);
         assertNotSame(user, thirdUser);
+    }
+
+    /**
+     * 二级（会话级）缓存测试
+     */
+    @Test
+    public void secondLevelCacheTest() {
+        SqlSession sessionOne = sqlSessionFactory.openSession();
+        UserMapper userMapper = sessionOne.getMapper(UserMapper.class);
+        User user = userMapper.get(1);
+        // 会话提交或关闭时会将数据放入二级缓存
+        // sessionOne.close();
+        sessionOne.commit();
+
+        SqlSession anotherSession = sqlSessionFactory.openSession();
+        UserMapper anotherSessionUserMapper = anotherSession.getMapper(UserMapper.class);
+        User anotherUser = anotherSessionUserMapper.get(1);
+        assertSame(user, anotherUser);
     }
 }
