@@ -16,10 +16,10 @@ Date: 2020-03-23 16:31:44
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for users
+-- Table structure for user
 -- ----------------------------
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users`
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`
 (
     `id`       int(11)      NOT NULL AUTO_INCREMENT,
     `name`     varchar(100) NOT NULL,
@@ -31,17 +31,17 @@ CREATE TABLE `users`
   DEFAULT CHARSET = utf8;
 
 -- ----------------------------
--- Records of users
+-- Records of user
 -- ----------------------------
-INSERT INTO `users`
+INSERT INTO `user`
 VALUES ('1', '赵云', 'zhaoyun@163.com', null);
-INSERT INTO `users`
+INSERT INTO `user`
 VALUES ('2', '张飞', 'zhangfei@163.com', null);
-INSERT INTO `users`
+INSERT INTO `user`
 VALUES ('3', '诸葛', '诸葛@163.com', null);
-INSERT INTO `users`
+INSERT INTO `user`
 VALUES ('4', 'Durant', 'durant@163.com', null);
-INSERT INTO `users`
+INSERT INTO `user`
 VALUES ('5', '杜兰特', 'durant@163.com', null);
-INSERT INTO `users`
+INSERT INTO `user`
 VALUES ('9', '霍华德', 'Howord@163.com', null);

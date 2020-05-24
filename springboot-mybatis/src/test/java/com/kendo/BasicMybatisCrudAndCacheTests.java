@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author kendone
  */
 @SpringBootTest
-public class SpringBootMybatisApplicationTests {
+public class BasicMybatisCrudAndCacheTests {
 
     @Autowired
     private SqlSessionFactory sqlSessionFactory;
@@ -71,7 +71,7 @@ public class SpringBootMybatisApplicationTests {
     }
 
     /**
-     * 二级（会话级）缓存测试
+     * 二级（跨会话级别）缓存测试
      */
     @Test
     public void secondLevelCacheTest() {
