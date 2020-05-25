@@ -24,6 +24,7 @@
         <module>springboot-rest</module>
         <module>springboot-webflux</module>
         <module>springboot-security</module>
+        <module>springboot-druid</module>
     </modules>
 
 </project>
