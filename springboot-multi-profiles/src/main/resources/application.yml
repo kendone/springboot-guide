@@ -1,0 +1,17 @@
+# 注册 CharacterEncodingFilter
+server:
+  servlet:
+    context-path: /mutliProfiles
+spring:
+  profiles:
+    active: prod
+---
+spring:
+  profiles: prod
+server:
+  port: 80
+---
+spring:
+  profiles: dev
+server:
+  port: 8080
