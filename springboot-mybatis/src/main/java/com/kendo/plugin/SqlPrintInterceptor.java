@@ -21,8 +21,10 @@ import java.util.List;
 import java.util.Properties;
 import java.util.regex.Matcher;
 
-/*
- *  MyBatis 将mybatis要执行的sql拦截打印出来
+/**
+ * MyBatis 将mybatis要执行的sql拦截打印出来
+ *
+ * @author Administrator
  */
 @Intercepts({
         @Signature(type = Executor.class, method = "query",
@@ -35,7 +37,6 @@ import java.util.regex.Matcher;
 public class SqlPrintInterceptor implements Interceptor {
 
     private static final Logger log = LoggerFactory.getLogger(SqlPrintInterceptor.class);
-
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Override
@@ -61,7 +62,6 @@ public class SqlPrintInterceptor implements Interceptor {
             log.info("执行 sql 耗时:" + timing + " ms" + " - id:" + statementId + " - Sql:");
             log.info("   " + sql);
         }
-
         return result;
     }
 
