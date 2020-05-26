@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 public class PrototypeTask implements Runnable {
 
     private static final Logger LOG = LoggerFactory.getLogger(PrototypeTask.class.getName());
-
     private String name;
 
     public PrototypeTask setName(String name) {
