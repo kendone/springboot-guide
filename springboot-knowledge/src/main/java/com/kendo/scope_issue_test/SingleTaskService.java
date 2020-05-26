@@ -1,4 +1,4 @@
-package com.kendo.scope;
+package com.kendo.scope_issue_test;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -28,7 +28,11 @@ public class SingleTaskService implements ApplicationContextAware {
                 applicationContext.getBean("prototypeTask", PrototypeTask.class).setName("Durant"),
                 1, 4, TimeUnit.SECONDS
         );
-        //executor.scheduleAtFixedRate(task.setName("Durant"), 1, 2, TimeUnit.SECONDS);
+        /**
+         * issue：
+         * 如果使用 @Autowire 注入依赖作用域为 prototype 的类无法每次执行方法行获取一个新的多实例Bean
+         *executor.scheduleAtFixedRate(task.setName("Durant"), 1, 2, TimeUnit.SECONDS);
+         */
     }
 
     @Override
