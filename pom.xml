@@ -25,6 +25,7 @@
         <module>springboot-webflux</module>
         <module>springboot-security</module>
         <module>springboot-multi-profiles</module>
+        <module>springboot-webmvc-war</module>
     </modules>
 
 </project>
