@@ -1,0 +1,17 @@
+server:
+  servlet:
+    context-path: /springboot
+  port: 80
+user:
+  id: 1
+  name: 2
+  age: 3
+  friends:
+    - Jordan
+    - Mike
+    - Curry
+    - Harden
+  scores:
+    English: 90
+    Math: 98
+    Chinese: 99
