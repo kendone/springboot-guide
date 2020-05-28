@@ -30,7 +30,7 @@ public class UserRepository {
 
     @Transactional(rollbackFor = NullPointerException.class)
     public User insert(final User user) {
-        String sql = "INSERT INTO users(NAME,EMAIL) VALUES(?,?)";
+        String sql = "INSERT INTO user(NAME,EMAIL) VALUES(?,?)";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(new PreparedStatementCreator() {
@@ -50,7 +50,7 @@ public class UserRepository {
     @Transactional(readOnly = true)
     public User get(Integer id) {
         return jdbcTemplate.queryForObject(
-                "SELECT id,name,email FROM users WHERE ID = ?",
+                "SELECT id,name,email FROM user WHERE ID = ?",
                 new Object[]{id},
                 (rs, i) -> new User(
                         rs.getInt(1),
@@ -63,7 +63,7 @@ public class UserRepository {
     @Transactional(readOnly = true)
     public List<User> findAll() {
         return jdbcTemplate.query(
-                "SELECT id,name,email FROM USERS",
+                "SELECT id,name,email FROM USER",
                 (rs, i) -> new User(
                         rs.getInt(1),
                         rs.getString(2),
