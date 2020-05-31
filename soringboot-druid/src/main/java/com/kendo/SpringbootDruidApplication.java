@@ -46,7 +46,9 @@ public class SpringbootDruidApplication {
     @Bean
     public ServletRegistrationBean statViewServlet() {
         ServletRegistrationBean bean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
-        Map<String, String> initParams = new HashMap<>();
+        Map<String, String> initParams = new HashMap<>(2);
+        initParams.put("loginUserName", "admin");
+        initParams.put("loginPassword", "123456");
         bean.setInitParameters(initParams);
         return bean;
     }
