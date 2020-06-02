@@ -28,6 +28,7 @@
         <module>springboot-webmvc-war</module>
         <module>springboot-properties-mapping</module>
         <module>soringboot-druid</module>
+        <module>springboot-redis</module>
     </modules>
 
 </project>
