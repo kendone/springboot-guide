@@ -8,3 +8,7 @@ spring:
         max-idle: 10
         min-idle: 5
     timeout: 5000
+server:
+  servlet:
+    context-path: /springboot4redis
+  port: 80

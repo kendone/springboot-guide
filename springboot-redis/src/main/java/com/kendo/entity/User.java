@@ -5,7 +5,6 @@ import org.springframework.data.redis.core.RedisHash;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
@@ -16,19 +15,16 @@ public class User {
     @Id
     @NotNull
     private String id;
-
     @NotNull
     @NotBlank
     private String name;
-
-    private LocalDateTime created;
-    private LocalDateTime modified;
     private boolean isValid;
 
-    public User(@NotNull String id, @NotNull @NotBlank String name, LocalDateTime created, LocalDateTime modified, boolean isValid) {
-        this.id = UUID.randomUUID().toString();
+    public User(@NotNull @NotBlank String name, boolean isValid) {
+        String temp = UUID.randomUUID().toString();
+        this.id = temp;
+        System.out.println("id：" + id);
         this.name = name;
-        this.created = created;
         this.isValid = isValid;
     }
 
@@ -46,22 +42,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
-    }
-
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
-    }
-
-    public LocalDateTime getModified() {
-        return modified;
-    }
-
-    public void setModified(LocalDateTime modified) {
-        this.modified = modified;
     }
 
     public boolean isValid() {
