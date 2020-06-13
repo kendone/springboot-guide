@@ -19,7 +19,7 @@ import org.springframework.context.annotation.*;
 @Configuration
 @EnableAspectJAutoProxy
 @PropertySource(value = {"classpath:user.properties"})
-@Import(value = {Car.class, KendoImportSelector.class, KendoBeanDefinitionRegister.class})
+@Import(value = {Car.class, KendoImportSelector.class, KendoImportBeanDefinitionRegister.class})
 public class Config {
 
     private static final Logger LOG = LoggerFactory.getLogger(Config.class);

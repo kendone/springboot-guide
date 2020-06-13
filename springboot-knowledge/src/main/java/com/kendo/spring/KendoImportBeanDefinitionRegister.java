@@ -8,7 +8,7 @@ import org.springframework.core.type.AnnotationMetadata;
 /**
  * @author kendone
  */
-public class KendoBeanDefinitionRegister implements ImportBeanDefinitionRegistrar {
+public class KendoImportBeanDefinitionRegister implements ImportBeanDefinitionRegistrar {
 
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
