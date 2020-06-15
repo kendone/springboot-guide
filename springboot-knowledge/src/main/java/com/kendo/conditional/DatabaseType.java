@@ -1,4 +1,4 @@
-package com.kendo;
+package com.kendo.conditional;
 
 import org.springframework.context.annotation.Conditional;
 

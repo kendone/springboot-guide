@@ -1,4 +1,4 @@
-package com.kendo;
+package com.kendo.conditional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

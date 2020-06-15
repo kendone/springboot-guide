@@ -1,4 +1,4 @@
-package com.kendo;
+package com.kendo.conditional;
 
 import java.util.List;
 
