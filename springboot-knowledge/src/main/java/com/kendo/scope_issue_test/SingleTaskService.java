@@ -30,8 +30,8 @@ public class SingleTaskService implements ApplicationContextAware {
         );
         /**
          * issue：
-         * 如果使用 @Autowire 注入依赖作用域为 prototype 的类无法每次执行方法行获取一个新的多实例Bean
-         *executor.scheduleAtFixedRate(task.setName("Durant"), 1, 2, TimeUnit.SECONDS);
+         * 如果使用 @Autowire 注入依赖作用域为 prototype 的类时无法每次执行方法行获取一个新的Bean实例
+         * executor.scheduleAtFixedRate(task.setName("Durant"), 1, 2, TimeUnit.SECONDS);
          */
     }
 

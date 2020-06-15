@@ -1,4 +1,4 @@
-package com.kendo.spring;
+package com.kendo.scanimportbean;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;

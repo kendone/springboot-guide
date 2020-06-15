@@ -1,4 +1,4 @@
-package com.kendo.spring;
+package com.kendo.scanimportbean;
 
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.RootBeanDefinition;

@@ -1,4 +1,4 @@
-package com.kendo.spring;
+package com.kendo.scanimportbean;
 
 /**
  * @author kendone

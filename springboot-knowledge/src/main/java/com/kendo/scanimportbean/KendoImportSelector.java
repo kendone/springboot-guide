@@ -1,4 +1,4 @@
-package com.kendo.spring;
+package com.kendo.scanimportbean;
 
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
@@ -9,6 +9,6 @@ import org.springframework.core.type.AnnotationMetadata;
 public class KendoImportSelector implements ImportSelector {
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
-        return new String[]{"com.kendo.spring.Ball"};
+        return new String[]{"com.kendo.scanimportbean.Ball"};
     }
 }
